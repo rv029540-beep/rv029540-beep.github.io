@@ -11,31 +11,12 @@ body{
     font-family:Arial;
     text-align:center;
     overflow:hidden;
-
-    background-image:url("mahiru.jpg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    background:#222;
+    color:#fff;
 }
 
-/* Page hide by default */
-#page{
-    display:none;
-}
-
-/* Center content */
-.center{
-    background:rgba(255,255,255,0.75);
-    padding:20px;
-    margin:auto;
-    margin-top:20vh;
-    width:90%;
-    max-width:600px;
-    border-radius:15px;
-}
-
-/* Password screen */
-#lockScreen{
+/* Lock screen */
+#lock{
     position:fixed;
     top:0;
     left:0;
@@ -44,17 +25,17 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.9);
     z-index:9999;
 }
 
 .lock-box{
-    background:white;
+    background:#fff;
+    color:#000;
     padding:25px;
     border-radius:15px;
     width:280px;
     text-align:center;
-    box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 
 .lock-box input{
@@ -76,37 +57,36 @@ body{
     cursor:pointer;
 }
 
-/* Heart animation */
-.heart{
-    position:fixed;
-    bottom:-50px;
-    font-size:24px;
-    animation:floatUp linear forwards;
-    pointer-events:none;
+/* Hidden page */
+#page{
+    display:none;
+    padding-top:20vh;
 }
 
-.pink{color:#ff4d6d;}
-.blue{color:#4dabf7;}
-
-@keyframes floatUp{
-    from{transform:translateY(0);opacity:1;}
-    to{transform:translateY(-120vh);opacity:0;}
+.center{
+    background:rgba(255,255,255,0.85);
+    color:#000;
+    padding:20px;
+    margin:auto;
+    width:90%;
+    max-width:600px;
+    border-radius:15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🔐 PASSWORD SCREEN -->
-<div id="lockScreen">
+<!-- 🔒 PASSWORD SCREEN -->
+<div id="lock">
     <div class="lock-box">
         <h3>🔒 Enter Password</h3>
-        <input type="password" id="passInput" placeholder="Password">
-        <button onclick="checkPassword()">Unlock</button>
+        <input type="password" id="pass">
+        <button onclick="unlock()">Unlock</button>
     </div>
 </div>
 
-<!-- 🔒 LOCKED CONTENT -->
+<!-- 🎁 HIDDEN CONTENT -->
 <div id="page">
     <div class="center">
         <h1 style="color:#ff4081;">Happy Birthday!</h1>
@@ -114,64 +94,33 @@ body{
         <p><strong>Aapko janamdin ki hardik shubkamnaye</strong> 💖</p>
 
         <p>
-          Tum bina bole sab samajh jati ho aur hamesha mere saath rehti ho.
+        Tum bina bole sab samajh jati ho aur hamesha mere saath rehti ho.
         </p>
 
         <p>
-           Haan, hum ladte bhi hain 😉<br>
-           par end me sab theek ho jaata hai,<br>
-           kyunki dosti humari har ladai se zyada strong hai 🥰
+        Haan, hum ladte bhi hain 😉<br>
+        par end me sab theek ho jaata hai,<br>
+        kyunki dosti humari har ladai se zyada strong hai 🥰
         </p>
 
         <p>
-         Mujhe poora bharosa hai ki<br>
-         aap apne goals zaroor achieve karogi 👍
+        Mujhe poora bharosa hai ki<br>
+        aap apne goals zaroor achieve karogi 👍
         </p>
     </div>
 </div>
 
 <script>
-/* 🔑 PASSWORD */
-var password = "SHOBHA31012005";
+function unlock(){
+    var correctPassword = "SHOBHA31012005";
+    var userPassword = document.getElementById("pass").value;
 
-function checkPassword(){
-    var userPass = document.getElementById("passInput").value;
-
-    if(userPass === password){
-        document.getElementById("lockScreen").style.display = "none";
+    if(userPassword === correctPassword){
+        document.getElementById("lock").style.display = "none";
         document.getElementById("page").style.display = "block";
-        startHearts();   // ❤️ hearts start after unlock
     }else{
         alert("❌ Galat Password!");
     }
-}
-
-/* ❤️ Hearts */
-function createHeart(){
-    const heart = document.createElement("div");
-    heart.className = "heart";
-
-    if(Math.random() > 0.5){
-        heart.classList.add("pink");
-        heart.innerHTML = "💗";
-    }else{
-        heart.classList.add("blue");
-        heart.innerHTML = "💙";
-    }
-
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (20 + Math.random() * 20) + "px";
-    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 8000);
-}
-
-function startHearts(){
-    setInterval(createHeart, 200);
 }
 </script>
 
