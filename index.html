@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Note</title>
 
 <style>
 body{
     margin:0;
-    height:100vh;
+    min-height:100vh;          /* FIX */
     font-family:Arial;
     text-align:center;
-    overflow:hidden;
+    overflow-y:auto;           /* FIX */
 
     background-image:url("mahiru.jpg");
     background-size:cover;
@@ -18,13 +19,20 @@ body{
     background-repeat:no-repeat;
 }
 
+/* dark overlay */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
+}
+
 /* Center box */
 .center{
-    position:relative;
-    top:20%;
-    background:rgba(255,255,255,0.75);
+    background:rgba(255,255,255,0.85);
     padding:20px;
-    margin:auto;
+    margin:25px auto;          /* FIX */
     width:90%;
     max-width:600px;
     border-radius:15px;
@@ -46,6 +54,12 @@ body{
     from{transform:translateY(0);opacity:1;}
     to{transform:translateY(-120vh);opacity:0;}
 }
+
+/* Mobile text fix */
+@media (max-width:600px){
+    h1{font-size:22px;}
+    p{font-size:14px; line-height:1.6;}
+}
 </style>
 </head>
 
@@ -62,9 +76,10 @@ if(pass !== "SHOBHA"){
 </script>
 
 <div class="center">
-    <h1 style="color:#ff4081;">Happy Birthday!</h1>
+    <h1 style="color:#ff4081;">🎂 Happy Birthday 🎂</h1>
 
-    <p><strong>Aapko janamdin ki hardik shubkamnaye</strong> aap meri life ki sabse special dost ho.</p>
+    <p><strong>Aapko janamdin ki hardik shubkamnaye</strong>  
+    aap meri life ki sabse special dost ho.</p>
 
     <p>
       Tum bina bole sab samajh jati ho aur hamesha mere saath rehti ho
@@ -75,24 +90,17 @@ if(pass !== "SHOBHA"){
        thoda gussa, thoda drama.<br>
        par end me sab theek ho jaata hai.<br>
        kyunki dosti humari har ladai se zyada strong hai 🥰<br>
-       Isliye aaj, sirf ladai ya past ki baat nahi.<br>
-       sirf khushi, smiles aur achhi yaadein yaad rakhte hain.<br>
-       Tu jaisi hai, bilkul waise hi special hai 😊<br>
-        meed hai aane wala saal aapke liye<br>
-      aur bhi zyada khushiyan lekar aaye.<br>
-      our aage bhi ham aise ladte our dost banke rehenge😁<br>
+       Isliye aaj sirf khushi, smiles aur achhi yaadein yaad rakhte hain.<br>
+       Tu jaisi hai bilkul waise hi special hai 😊<br>
+       umeed hai aane wala saal aur bhi zyada khushiyan laaye ✨
     </p>
 
     <p>
      aap jo mehnat padhai mein kar rahi ho,<br>
-     wo kabhi waste nahi jaayegi.<br>
-     Mujhe poora bharosa hai ki<br>
-     aap apne goals zaroor achieve karegi 👍<br>
-        thoda rest lena bhi mat bhoolna.<br>
-     Main hamesha aapko support karne ke liye hoon👍<br>
-    our mai hamesha aapke saath hu<br>
-    agar aapko in future me koi bhi help chahiye ho<br>
-    yo mujhe yaad kar sakte ho 😊<br>
+     wo kabhi waste nahi jaayegi 📚<br>
+     Mujhe poora bharosa hai ki aap apne goals zaroor achieve karegi 👍<br>
+     thoda rest lena bhi mat bhoolna 💖<br>
+     Main hamesha aapke saath hoon 🤝
     </p>
 </div>
 
@@ -118,7 +126,7 @@ function createHeart(){
     setTimeout(()=>heart.remove(),8000);
 }
 
-setInterval(createHeart,200);
+setInterval(createHeart,300);
 </script>
 
 </body>
