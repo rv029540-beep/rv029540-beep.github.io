@@ -6,7 +6,6 @@
 <title>Private Birthday Note 🔐</title>
 
 <style>
-/* HIDE EVERYTHING BY DEFAULT */
 html,body{
     margin:0;
     padding:0;
@@ -39,7 +38,6 @@ html,body{
 
 .lock-box h2{
     color:#ff4d88;
-    margin-bottom:10px;
 }
 
 .lock-box input{
@@ -49,7 +47,6 @@ html,body{
     border:none;
     border-radius:8px;
     font-size:16px;
-    outline:none;
 }
 
 .lock-box button{
@@ -63,7 +60,7 @@ html,body{
     cursor:pointer;
 }
 
-/* MAIN CONTENT (HIDDEN) */
+/* CONTENT */
 #content{
     display:none;
     background-image:url("mahiru.jpg");
@@ -146,22 +143,13 @@ html,body{
 </div>
 
 <script>
-/* 🔐 HASHED PASSWORD (SHOBHA) */
-const HASH = "95cee1d4d9a6b249bf749fb0c8d8f3ffe5cb9f61cf7cf92c8982737173474de8"; 
-// ↑ SHA-256 of "SHOBHA"
+/* 🔐 SIMPLE & STABLE PASSWORD */
+const PASSWORD = "SHOBHA";
 
-async function sha256(text){
-    const enc = new TextEncoder().encode(text);
-    const buf = await crypto.subtle.digest("SHA-256", enc);
-    return Array.from(new Uint8Array(buf))
-        .map(b => b.toString(16).padStart(2,"0")).join("");
-}
+function unlock(){
+    const input = document.getElementById("pwd").value.trim();
 
-async function unlock(){
-    const input = document.getElementById("pwd").value;
-    const hash = await sha256(input);
-
-    if(hash === HASH){
+    if(input === PASSWORD){
         sessionStorage.setItem("unlocked","yes");
         document.getElementById("lockScreen").style.display="none";
         document.getElementById("content").style.display="block";
