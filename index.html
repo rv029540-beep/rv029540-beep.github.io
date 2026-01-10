@@ -18,6 +18,11 @@ body{
     background-repeat:no-repeat;
 }
 
+/* Page hide by default */
+#page{
+    display:none;
+}
+
 /* Center box */
 .center{
     position:relative;
@@ -42,33 +47,29 @@ body{
 .pink{color:#ff4d6d;}
 .blue{color:#4dabf7;}
 
-/* Animation */
 @keyframes floatUp{
-    from{
-        transform:translateY(0);
-        opacity:1;
-    }
-    to{
-        transform:translateY(-120vh);
-        opacity:0;
-    }
+    from{transform:translateY(0);opacity:1;}
+    to{transform:translateY(-120vh);opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🔐 PASSWORD LOCK -->
+<!-- 🔐 PASSWORD SCRIPT -->
 <script>
-var password = "SHOBHA31012005";   // 🔑 SHOBHA31012005
-
+var password = "mahru123";   // 🔑 yahan password change karo
 var userPass = prompt("🔒 Password daalo:");
 
-if (userPass !== password) {
-    alert("❌ Galat password!");
-    document.body.innerHTML = "";
+if(userPass === password){
+    document.getElementById("page").style.display = "block";
+}else{
+    alert("❌ Galat Password!");
 }
 </script>
+
+<!-- 🔒 LOCKED CONTENT -->
+<div id="page">
 
 <div class="center">
     <h1 style="color:#ff4081;">Happy Birthday!</h1>
@@ -81,28 +82,13 @@ if (userPass !== password) {
 
     <p>
        Haan, hum ladte bhi hain 😉<br>
-       thoda gussa, thoda drama.<br>
-       par end me sab theek ho jaata hai.<br>
-       kyunki dosti humari har ladai se zyada strong hai.🥰<br>
-       Isliye aaj, sirf ladai ya past ki baat nahi.<br>
-       sirf khushi, smiles aur achhi yaadein yaad rakhte hain.<br>
-       Tu jaisi hai, bilkul waise hi special hai 😊<br>
-       umeed hai aane wala saal aapke liye<br>
-       aur bhi zyada khushiyan lekar aaye.<br>
-       aur aage bhi hum aise ladte aur dost banke rahenge 😁
+       par end me sab theek ho jaata hai,<br>
+       kyunki dosti humari har ladai se zyada strong hai 🥰
     </p>
 
     <p>
-     aap jo mehnat padhai mein kar rahi ho,<br>
-     wo kabhi waste nahi jaayegi.<br>
      Mujhe poora bharosa hai ki<br>
-     aap apne goals zaroor achieve karogi.<br>
-     Bas khud par vishwas rakhna,<br>
-     aur thoda rest lena bhi mat bhoolna.<br>
-     Main hamesha aapko support karne ke liye hoon 👍<br>
-     aur main hamesha aapke saath hoon.<br>
-     Future me kabhi bhi help chahiye ho<br>
-     to mujhe yaad kar sakti ho 😊
+     aap apne goals zaroor achieve karogi 👍
     </p>
 </div>
 
@@ -124,14 +110,14 @@ function createHeart(){
     heart.style.animationDuration=(4+Math.random()*4)+"s";
 
     document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },8000);
+    setTimeout(()=>heart.remove(),8000);
 }
 
 setInterval(createHeart,200);
 </script>
 
+</div>
+
 </body>
 </html>
+
