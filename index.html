@@ -23,10 +23,8 @@ body{
     display:none;
 }
 
-/* Center box */
+/* Center content */
 .center{
-    position:relative;
-    top:20%;
     background:rgba(255,255,255,0.75);
     padding:20px;
     margin:auto;
@@ -35,7 +33,49 @@ body{
     border-radius:15px;
 }
 
-/* Heart */
+/* Password screen */
+#lockScreen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+}
+
+.lock-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    width:280px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.lock-box input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    font-size:16px;
+}
+
+.lock-box button{
+    width:100%;
+    margin-top:15px;
+    padding:10px;
+    background:#ff4d6d;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* Heart animation */
 .heart{
     position:fixed;
     bottom:-50px;
@@ -56,17 +96,14 @@ body{
 
 <body>
 
-<!-- 🔐 PASSWORD SCRIPT -->
-<script>
-var password = "mahru123";   // 🔑 yahan password change karo
-var userPass = prompt("🔒 Password daalo:");
-
-if(userPass === password){
-    document.getElementById("page").style.display = "block";
-}else{
-    alert("❌ Galat Password!");
-}
-</script>
+<!-- 🔐 PASSWORD SCREEN -->
+<div id="lockScreen">
+    <div class="lock-box">
+        <h3>🔒 Enter Password</h3>
+        <input type="password" id="passInput" placeholder="Password">
+        <button onclick="checkPassword()">Unlock</button>
+    </div>
+</div>
 
 <!-- 🔒 LOCKED CONTENT -->
 <div id="page">
@@ -74,7 +111,7 @@ if(userPass === password){
 <div class="center">
     <h1 style="color:#ff4081;">Happy Birthday!</h1>
 
-    <p><strong>Aapko janamdin ki hardik shubkamnaye</strong> aap meri life ki sabse special dost ho.</p>
+    <p><strong>Aapko janamdin ki hardik shubkamnaye</strong> 💖</p>
 
     <p>
       Tum bina bole sab samajh jati ho aur hamesha mere saath rehti ho.
@@ -92,7 +129,23 @@ if(userPass === password){
     </p>
 </div>
 
+</div>
+
 <script>
+var password = "mahru123"; // 🔑 yahan password change kar sakte ho
+
+function checkPassword(){
+    var userPass = document.getElementById("passInput").value;
+
+    if(userPass === password){
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("page").style.display = "block";
+    }else{
+        alert("❌ Galat Password!");
+    }
+}
+
+/* Hearts */
 function createHeart(){
     const heart=document.createElement("div");
     heart.className="heart";
@@ -107,17 +160,6 @@ function createHeart(){
 
     heart.style.left=Math.random()*100+"vw";
     heart.style.fontSize=(20+Math.random()*20)+"px";
-    heart.style.animationDuration=(4+Math.random()*4)+"s";
+    heart.style.animatio
 
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),8000);
-}
-
-setInterval(createHeart,200);
-</script>
-
-</div>
-
-</body>
-</html>
 
