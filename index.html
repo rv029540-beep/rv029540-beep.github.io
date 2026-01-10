@@ -5,12 +5,13 @@
 <title>Birthday Note</title>
 
 <style>
+/* ===== BODY & BACKGROUND ===== */
 body{
     margin:0;
     font-family:Arial;
     color:#fff;
 
-    /* ✅ FIX: image folder path */
+    /* ✅ background image from folder */
     background-image:url("images/mahiru.jpg");
     background-size:cover;
     background-position:center;
@@ -20,7 +21,16 @@ body{
     overflow-y:auto;
 }
 
-/* 🔒 Lock screen */
+/* dark overlay so text readable */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
+}
+
+/* ===== LOCK SCREEN ===== */
 #lock{
     position:fixed;
     inset:0;
@@ -59,15 +69,93 @@ body{
     cursor:pointer;
 }
 
-/* 🔓 Page */
+/* ===== PAGE CONTENT ===== */
 #page{
     display:none;
     padding:30px 0 50px;
 }
 
-/* 📦 Content box */
 .center{
     background:rgba(255,255,255,0.92);
     color:#000;
     padding:20px;
     margin:20px auto;
+    width:92%;
+    max-width:720px;
+    border-radius:15px;
+    line-height:1.6;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔒 PASSWORD SCREEN -->
+<div id="lock">
+    <div class="lock-box">
+        <h3>🔒 Enter Password</h3>
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="unlock()">Unlock</button>
+    </div>
+</div>
+
+<!-- 🎁 FULL CONTENT -->
+<div id="page">
+    <div class="center">
+        <h1 style="color:#ff4081;">Happy Birthday!</h1>
+
+        <p>
+            <strong>Aapko janamdin ki hardik shubkamnaye</strong> 💖  
+            aap meri life ki sabse special dost ho.
+        </p>
+
+        <p>
+            Tum bina bole sab samajh jati ho aur hamesha mere saath rehti ho.
+        </p>
+
+        <p>
+            Haan, hum ladte bhi hain 😉<br>
+            thoda gussa, thoda drama.<br>
+            par end me sab theek ho jaata hai.<br>
+            kyunki dosti humari har ladai se zyada strong hai 🥰<br>
+            Isliye aaj, sirf ladai ya past ki baat nahi.<br>
+            sirf khushi, smiles aur achhi yaadein yaad rakhte hain.<br>
+            Tu jaisi hai, bilkul waise hi special hai 😊<br>
+            umeed hai aane wala saal aapke liye<br>
+            aur bhi zyada khushiyan lekar aaye.<br>
+            aur aage bhi hum aise ladte aur dost banke rahenge 😁
+        </p>
+
+        <p>
+            aap jo mehnat padhai mein kar rahi ho,<br>
+            wo kabhi waste nahi jaayegi.<br>
+            Mujhe poora bharosa hai ki<br>
+            aap apne goals zaroor achieve karogi.<br>
+            Bas khud par vishwas rakhna,<br>
+            aur thoda rest lena bhi mat bhoolna.<br>
+            Main hamesha aapko support karne ke liye hoon 👍<br>
+            aur main hamesha aapke saath hoon.<br>
+            Future me kabhi bhi help chahiye ho<br>
+            to mujhe yaad kar sakti ho 😊
+        </p>
+    </div>
+</div>
+
+<script>
+function unlock(){
+    var correctPassword = "SHOBHA31012005";
+    var userPassword = document.getElementById("pass").value;
+
+    if(userPassword === correctPassword){
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("page").style.display = "block";
+        window.scrollTo(0,0);
+    }else{
+        alert("❌ Galat Password!");
+    }
+}
+</script>
+
+</body>
+</html>
