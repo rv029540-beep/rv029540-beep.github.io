@@ -1,81 +1,85 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Note</title>
 
-    <title>Birthday Note</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial;
+        background-color: #f9f9f9;
+        text-align: center;
+        overflow: hidden;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            font-family: Arial;
-            background-color: #f9f9f9;
-            text-align: center;
-            overflow: hidden;
+    .center {
+        position: relative;
+        top: 20%;
+        padding: 20px;
+    }
+
+    .heart {
+        position: fixed;
+        bottom: -40px;
+        font-size: 28px;
+        animation: floatUp linear forwards;
+        text-shadow: 0 0 10px currentColor,
+                     0 0 20px currentColor,
+                     0 0 30px currentColor;
+    }
+
+    .pink { color: #ff4d6d; }
+    .blue { color: #4dabf7; }
+
+    @keyframes floatUp {
+        from {
+            transform: translateY(0);
+            opacity: 1;
         }
-
-        /* Center content (NO animation now) */
-        .center {
-            position: relative;
-            top: 20%;
+        to {
+            transform: translateY(-120vh);
+            opacity: 0;
         }
-
-        /* Heart style */
-        .heart {
-            position: fixed;
-            bottom: -40px;
-            font-size: 28px;
-            animation: floatUp linear forwards;
-            text-shadow: 0 0 10px currentColor,
-                         0 0 20px currentColor,
-                         0 0 30px currentColor;
-        }
-
-        .pink { color: #ff4d6d; }
-        .blue { color: #4dabf7; }
-
-        /* Heart animation */
-        @keyframes floatUp {
-            from {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-120vh);
-                opacity: 0;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
 
-
-
 <div class="center">
-    <h1 style="color: #ff4081;"> Happy Birthday! </h1>
+    <h1 style="color:#ff4081;">🎉 Happy Birthday 🎉</h1>
 
     <p>
-        <strong>You are our favourite person</strong> and today is all about celebrating YOU.
+        <strong>Dear Best Friend</strong> 💛
     </p>
 
     <p>
-        May your life be filled with <mark>happiness</mark>,
-        <mark>success</mark>, and <mark>good health</mark>.
+        Tum meri life ki sabse special best friend ho.  
+        Tum bina bole sab samajh leti ho aur har situation mein mere saath khadi rehti ho.
     </p>
 
     <p>
-        Happy Birthday to Our Favourite Person! <br>
-        You are not just special, you are truly one of a kind. <br>
-        Your kindness, smile, and presence make everything brighter around you. <br>
-        May all your dreams come true and may this year bring you endless joy. <br>
-        Keep smiling, keep shining, and never stop being amazing 
+        Tumhari wajah se meri life mein smiles aayi hain,  
+        aur main hamesha thankful hoon ki tum meri best friend ho.
     </p>
 
-    <h3 style="color: #4caf50;">With lots of love </h3>
+    <p>
+        Dua karta hoon ki tumhari life hamesha khushiyon se bhari rahe,  
+        tumhare saare dreams poore ho,  
+        aur tum hamesha aise hi strong, kind aur amazing raho ✨
+    </p>
+
+    <p>
+        Aaj ka din pura enjoy karo,  
+        cake zyada khana 😄🎂
+    </p>
+
+    <h3 style="color:#4caf50;">With lots of love 💛</h3>
+    <h4>— Your Best Friend</h4>
 </div>
 
-<!--  Glow Hearts Script -->
 <script>
 function createHeart() {
     const heart = document.createElement("div");
