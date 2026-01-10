@@ -8,18 +8,17 @@
 <style>
 body{
     margin:0;
-    min-height:100vh;          /* FIX */
+    min-height:100vh;
     font-family:Arial;
     text-align:center;
-    overflow-y:auto;           /* FIX */
+    overflow-y:auto;
 
     background-image:url("mahiru.jpg");
     background-size:cover;
     background-position:center;
-    background-repeat:no-repeat;
 }
 
-/* dark overlay */
+/* overlay */
 body::before{
     content:"";
     position:fixed;
@@ -28,11 +27,16 @@ body::before{
     z-index:-1;
 }
 
+/* HIDE CONTENT INITIALLY */
+#content{
+    display:none;
+}
+
 /* Center box */
 .center{
     background:rgba(255,255,255,0.85);
     padding:20px;
-    margin:25px auto;          /* FIX */
+    margin:25px auto;
     width:90%;
     max-width:600px;
     border-radius:15px;
@@ -55,7 +59,6 @@ body::before{
     to{transform:translateY(-120vh);opacity:0;}
 }
 
-/* Mobile text fix */
 @media (max-width:600px){
     h1{font-size:22px;}
     p{font-size:14px; line-height:1.6;}
@@ -65,43 +68,43 @@ body::before{
 
 <body>
 
+<!-- 🔐 PASSWORD SCRIPT -->
 <script>
-/* 🔐 SIMPLE PASSWORD LOCK */
-var pass = prompt("🔒 enter password:");
+const pass = prompt("🔒 Enter password:");
 
-if(pass !== "SHOBHA"){
-    alert("❌ pagal sahi password daalo!");
+if(pass === "SHOBHA"){
+    document.getElementById("content").style.display = "block";
+}else{
+    alert("❌ Galat password!");
     document.body.innerHTML = "";
 }
 </script>
 
-<div class="center">
-    <h1 style="color:#ff4081;">🎂 Happy Birthday 🎂</h1>
+<!-- 🔒 LOCKED CONTENT -->
+<div id="content">
+    <div class="center">
+        <h1 style="color:#ff4081;">🎂 Happy Birthday 🎂</h1>
 
-    <p><strong>Aapko janamdin ki hardik shubkamnaye</strong>  
-    aap meri life ki sabse special dost ho.</p>
+        <p><strong>Aapko janamdin ki hardik shubkamnaye</strong><br>
+        aap meri life ki sabse special dost ho.</p>
 
-    <p>
-      Tum bina bole sab samajh jati ho aur hamesha mere saath rehti ho
-    </p>
+        <p>
+        Tum bina bole sab samajh jati ho aur hamesha mere saath rehti ho 💖
+        </p>
 
-    <p>
-       Haan, hum ladte bhi hain 😉<br>
-       thoda gussa, thoda drama.<br>
-       par end me sab theek ho jaata hai.<br>
-       kyunki dosti humari har ladai se zyada strong hai 🥰<br>
-       Isliye aaj sirf khushi, smiles aur achhi yaadein yaad rakhte hain.<br>
-       Tu jaisi hai bilkul waise hi special hai 😊<br>
-       umeed hai aane wala saal aur bhi zyada khushiyan laaye ✨
-    </p>
+        <p>
+        Haan, hum ladte bhi hain 😉<br>
+        thoda gussa, thoda drama.<br>
+        par end me sab theek ho jaata hai.<br>
+        kyunki dosti humari har ladai se zyada strong hai 🥰
+        </p>
 
-    <p>
-     aap jo mehnat padhai mein kar rahi ho,<br>
-     wo kabhi waste nahi jaayegi 📚<br>
-     Mujhe poora bharosa hai ki aap apne goals zaroor achieve karegi 👍<br>
-     thoda rest lena bhi mat bhoolna 💖<br>
-     Main hamesha aapke saath hoon 🤝
-    </p>
+        <p>
+        Aap jo mehnat padhai mein kar rahi ho,<br>
+        wo kabhi waste nahi jaayegi 📚<br>
+        Mujhe poora bharosa hai ki aap apne goals zaroor achieve karegi 👍
+        </p>
+    </div>
 </div>
 
 <script>
