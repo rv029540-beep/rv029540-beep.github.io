@@ -63,28 +63,34 @@ html,body{
     background-image:url("mahiru.jpg");
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
     overflow-y:auto;
 }
 
-/* overlay */
+/* light overlay */
 #content::before{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,0.35);
+    background:rgba(0,0,0,0.20);
     z-index:0;
 }
 
+/* CENTER BOX – dull / glass */
 .center{
     position:relative;
     z-index:1;
-    background:rgba(255,255,255,0.6);
+    background:rgba(255,255,255,0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     padding:20px;
     margin:25px auto 80px;
     width:90%;
     max-width:600px;
     border-radius:15px;
     text-align:center;
+    color:#111;
 }
 
 /* HEARTS */
@@ -94,11 +100,25 @@ html,body{
     font-size:22px;
     animation:floatUp linear forwards;
     pointer-events:none;
-    z-index:99999; /* text ke upar */
+    z-index:99999;
 }
 
-.pink{color:#ff4d6d;}
-.blue{color:#4dabf7;}
+/* GRADIENT HEART */
+.gradient-heart{
+    background: linear-gradient(45deg, #ff4d6d, #4DABF7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 0 8px rgba(255,77,109,0.7),
+        0 0 12px rgba(77,171,247,0.7);
+    animation: glowPulse 2s infinite ease-in-out;
+}
+
+@keyframes glowPulse{
+    0%{transform:scale(1);opacity:.7;}
+    50%{transform:scale(1.1);opacity:1;}
+    100%{transform:scale(1);opacity:.7;}
+}
 
 @keyframes floatUp{
     from{transform:translateY(0);opacity:1;}
@@ -109,7 +129,7 @@ html,body{
 
 <body>
 
-<!-- LOCK -->
+<!-- LOCK SCREEN -->
 <div id="lockScreen">
     <div class="lock-box">
         <h2>🔒 NAMASTE MADAM JI</h2>
@@ -125,105 +145,85 @@ html,body{
     <div class="center">
         <h1 style="color:#ff80ab;">🎂 Happy Birthday 🎂</h1>
 
-        <p><strong>First of all<br></strong>
-            Aapko janamdin ki hardik shubkamnaye<br>
-            aap meri life ki sabse special dost ho.<br>
+        <p><strong>First of all</strong><br>
+        Aapko janamdin ki hardik shubkamnaye 💖<br>
+        aap meri life ki sabse special dost ho.
         </p>
 
         <p>
         Haan, hum ladte bhi hain 😉<br>
         thoda gussa, thoda drama.<br>
         par end me sab theek ho jaata hai.<br>
-        kyunki dosti humari har ladai se zyada strong hai.🥰<br>
-        Isliye aaj, sirf ladai ya past ki baat nahi.<br>
+        kyunki dosti humari har ladai se zyada strong hai 🥰<br>
+        Isliye aaj sirf ladai ya past ki baat nahi,<br>
         sirf khushi, smiles aur achhi yaadein yaad rakhte hain.<br>
-        aap jaisi hai, bilkul waise hi special hai😊<br>
+        aap jaisi ho, bilkul waise hi special ho 😊<br>
         umeed hai aane wala saal aapke liye<br>
         aur bhi zyada khushiyan lekar aaye.<br>
-        our aage bhi ham aise ladte our dost bane rehenge😁
+        aur aage bhi hum aise ladte aur dost bane rahein 😁
         </p>
 
-       <p>  
+        <p>
         aap jo mehnat padhai mein kar rahi ho,<br>
         wo kabhi waste nahi jaayegi.<br>
         Mujhe poora bharosa hai ki<br>
         aap apne goals zaroor achieve karegi.<br>
         Bas khud par vishwas rakhna,<br>
         aur thoda rest lena bhi mat bhoolna.<br>
-        Main hamesha aapko support karne ke liye aapke saath khada hu👍<br>
-        our mai hamesha aapke saath hu<br>
-        agar aapko in future me koi bhi help chahiye ho<br>
-        to mujhe jarur yaad karna. 👍
+        Main hamesha aapko support karne ke liye aapke saath khada hoon 👍<br>
+        aur main hamesha aapke saath hoon,<br>
+        agar future me kabhi bhi help chahiye ho<br>
+        to mujhe zaroor yaad karna 😊
         </p>
-        <p> Our aapke liye aak shayari
+
+        <p><strong>Aur aapke liye ek shayari 💫</strong></p>
+
+        <p style="color:#111;"><strong>Aarz kiya hai…</strong></p>
+
+        <p style="color:#4DABF7;">
+        dil me base ho zara khayal rakhna 💙<br>
+        waqt mil jaye to yaad karna
         </p>
-        <P>
-            <h1 style="color:#111111;">
-                <strong>aarj kiya hai<br></strong>
-       <h1 style="color:#4DABF7;">
-        <strong>dil me baase ho jara khyal rakhna<br>
-        waqt mil jaye to yaad karna<br>
-        </strong></P>
-        <p><strong>hame to aadat hai aapko yaad karne ki<br>
-        aapko bura lage to maaf karna🥰🥰😉😉<br></h1>
-        </strong></p>
+
+        <p>
+        hume to aadat hai aapko yaad karne ki 💖<br>
+        aapko bura lage to maaf karna 🥰😉
+        </p>
     </div>
-</div>/
-  <style> 
-      <head>
-      * Gradient Heart */
-.gradient-heart{ background: linear-gradient(45deg, #ff4d6d, #4DABF7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow:
-        0 0 8px rgba(255,77,109,0.7),
-        0 0 12px rgba(77,171,247,0.7);
-    animation: glowPulse 2s infinite ease-in-out;
-}
-
-/* Glow animation */
-@keyframes glowPulse{
-    0%   { transform: scale(1); opacity:0.7; }
-    50%  { transform: scale(1.1); opacity:1; }
-    100% { transform: scale(1); opacity:0.7; }
-}
-    </head>
-  </style>
-
+</div>
 
 <script>
-const PASSWORD = "SHOBHA";
-
-const lockScreen = document.getElementById("lockScreen");
-const content = document.getElementById("content");
-const error = document.getElementById("error");
+const PASSWORD="SHOBHA";
+const lockScreen=document.getElementById("lockScreen");
+const content=document.getElementById("content");
+const error=document.getElementById("error");
 
 function unlock(){
-    const input = document.getElementById("pwd").value.trim();
-    if(input === PASSWORD){
+    const input=document.getElementById("pwd").value.trim();
+    if(input===PASSWORD){
         sessionStorage.setItem("unlocked","yes");
-        lockScreen.style.display = "none";
-        content.style.display = "block";
+        lockScreen.style.display="none";
+        content.style.display="block";
         startHearts();
     }else{
-        error.style.display = "block";
+        error.style.display="block";
     }
 }
 
-if(sessionStorage.getItem("unlocked") === "yes"){
-    lockScreen.style.display = "none";
-    content.style.display = "block";
+if(sessionStorage.getItem("unlocked")==="yes"){
+    lockScreen.style.display="none";
+    content.style.display="block";
     startHearts();
 }
 
 function startHearts(){
     setInterval(()=>{
-        const h = document.createElement("div");
-        h.className = "heart " + (Math.random()>0.5?"pink":"blue");
-        h.innerHTML = Math.random()>0.5?"💗":"💙";
-        h.style.left = Math.random()*100 + "vw";
-        h.style.fontSize = (18+Math.random()*20)+"px";
-        h.style.animationDuration = (4+Math.random()*4)+"s";
+        const h=document.createElement("div");
+        h.className="heart gradient-heart";
+        h.innerHTML="❤";
+        h.style.left=Math.random()*100+"vw";
+        h.style.fontSize=(18+Math.random()*20)+"px";
+        h.style.animationDuration=(4+Math.random()*4)+"s";
         document.body.appendChild(h);
         setTimeout(()=>h.remove(),8000);
     },300);
